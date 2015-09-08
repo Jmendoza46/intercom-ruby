@@ -42,7 +42,7 @@ module Intercom
         end
 
         def define_standard_accessors(attribute, value, klass)
-          puts "#{attribute} #{value}, #{kclass}"
+          puts "#{attribute} #{value}, #{klass}"
             klass.class_eval %Q"
               def #{attribute}=(value)
                 mark_field_as_changed!(#{attribute.to_sym})
