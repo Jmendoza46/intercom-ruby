@@ -18,6 +18,7 @@ module Intercom
         private
 
         def define_flat_store_based_accessors(attribute, value, klass)
+          puts "flat store #{attribute} #{value}, #{klass}"
           klass.class_eval %Q"
             def #{attribute}=(value)
               mark_field_as_changed!(#{attribute.to_sym})
@@ -30,6 +31,7 @@ module Intercom
         end
 
         def define_date_based_accessors(attribute, value, klass)
+          puts "date #{attribute} #{value}, #{klass}"
           klass.class_eval %Q"
             def #{attribute}=(value)
               mark_field_as_changed!(#{attribute.to_sym})
@@ -42,7 +44,7 @@ module Intercom
         end
 
         def define_standard_accessors(attribute, value, klass)
-          puts "#{attribute} #{value}, #{klass}"
+          puts "standard #{attribute} #{value}, #{klass}"
             klass.class_eval %Q"
               def #{attribute}=(value)
                 mark_field_as_changed!(#{attribute.to_sym})
